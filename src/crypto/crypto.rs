@@ -17,7 +17,7 @@ fn is_prime(n: &BigInt, rounds: usize) -> bool {
     // Write n-1 as d * 2^r
     let mut d = n - BigInt::one();
     let mut r = 0;
-    while &d % 2 == &BigInt::zero() {
+    while (&d % 2) == BigInt::zero() {
         d /= 2;
         r += 1;
     }
@@ -46,7 +46,7 @@ fn is_prime(n: &BigInt, rounds: usize) -> bool {
 }
 
 /// Modular exponentiation: (base^exp) mod modulus
-fn mod_pow(base: &BigInt, exp: &BigInt, modulus: &BigInt) -> BigInt {
+pub fn mod_pow(base: &BigInt, exp: &BigInt, modulus: &BigInt) -> BigInt {
     let mut result = BigInt::one();
     let mut base = base % modulus;
     let mut exp = exp.clone();
